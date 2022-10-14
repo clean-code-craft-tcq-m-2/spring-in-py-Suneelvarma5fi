@@ -3,6 +3,23 @@ import statistics
 import math as m
 
 class StatsTest(unittest.TestCase):
+    
+  class StatsAlerter(self,maxThreshold,funcs):
+    
+    self.maxThreshold = maxThreshold
+    self.functions = funcs
+    
+    def checkAndAlert(self,numbers):
+        maxOfNumbers = max(numbers)
+        self.functions[0].emailSent = self.maxThreshold <  maxOfNumbers
+        self.functions[1].ledGlows = self.maxThreshold <  maxOfNumbers
+  
+  class EmailAlert(self):
+    self.emailSent = false
+
+  class LEDAlert(self):
+    self.ledGlows = false
+    
   def test_report_min_max_avg(self):
     computedStats = statistics.calculateStats([1.5, 8.9, 3.2, 4.5])
     epsilon = 0.001
@@ -20,6 +37,7 @@ class StatsTest(unittest.TestCase):
     # nan (not-a-number), as defined in the math package
     # Design the assert here.
     # Use nan and isnan in https://docs.python.org/3/library/math.html
+  
 
   def test_raise_alerts_when_max_above_threshold(self):
     emailAlert = EmailAlert()
