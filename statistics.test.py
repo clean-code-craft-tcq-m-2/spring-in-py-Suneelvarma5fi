@@ -2,7 +2,9 @@ import unittest
 import statistics
 import math as m
 
+"""
 class StatsAlerter(unittest.TestCase,maxThreshold,funcs):
+
     #Alerts trigger
     def __init__(self):
         self.maxThreshold = maxThreshold
@@ -22,6 +24,7 @@ class LEDAlert(unittest.TestCase):
     #Alerts helper
     def __init__(self):
         self.ledGlows = false
+    """
 
 class StatsTest(unittest.TestCase):
     
@@ -45,6 +48,15 @@ class StatsTest(unittest.TestCase):
   
 
   def test_raise_alerts_when_max_above_threshold(self):
+    maxThreshold = 10.5
+    emailSent, ledGlows = false, false
+    computedStats = statistics.calculateStats([22.6, 12.5, 3.7])
+    if computedStats["max"] > maxThreshold: emailSent, ledGlows = true,true
+    self.assertTrue(emailSent)
+    self.assertTrue(ledGlows)
+    
+  """
+  def test_raise_alerts_when_max_above_threshold(self):
     emailAlert = EmailAlert()
     ledAlert = LEDAlert()
     maxThreshold = 10.5
@@ -52,6 +64,7 @@ class StatsTest(unittest.TestCase):
     statsAlerter.checkAndAlert([22.6, 12.5, 3.7])
     self.assertTrue(emailAlert.emailSent)
     self.assertTrue(ledAlert.ledGlows)
+  """
 
 if __name__ == "__main__":
   unittest.main()
