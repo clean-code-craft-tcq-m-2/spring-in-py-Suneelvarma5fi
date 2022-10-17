@@ -49,9 +49,9 @@ class StatsTest(unittest.TestCase):
 
   def test_raise_alerts_when_max_above_threshold(self):
     maxThreshold = 10.5
-    emailSent, ledGlows = false, false
+    emailSent, ledGlows = False, False
     computedStats = statistics.calculateStats([22.6, 12.5, 3.7])
-    if computedStats["max"] > maxThreshold: emailSent, ledGlows = true,true
+    if computedStats["max"] > maxThreshold: emailSent, ledGlows = True,True
     self.assertTrue(emailSent)
     self.assertTrue(ledGlows)
     
